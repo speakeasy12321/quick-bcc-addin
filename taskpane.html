@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quick BCC</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+  <script src="taskpane.js" defer></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f2f1;
+      padding: 16px;
+      color: #201f1e;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0078d4;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .card p {
+      font-size: 12px;
+      color: #605e5c;
+      margin-bottom: 6px;
+    }
+
+    #saved-email-display {
+      font-size: 13px;
+      font-weight: 500;
+      color: #201f1e;
+      word-break: break-all;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #605e5c;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #c8c6c4;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #0078d4;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 9px;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary {
+      background: #0078d4;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .btn-primary:hover { background: #106ebe; }
+    .btn-primary:disabled { background: #c8c6c4; cursor: not-allowed; }
+
+    .btn-secondary {
+      background: #edebe9;
+      color: #201f1e;
+    }
+    .btn-secondary:hover { background: #d2d0ce; }
+
+    #status {
+      margin-top: 10px;
+      font-size: 12px;
+      min-height: 18px;
+      text-align: center;
+    }
+
+    .success { color: #107c10; }
+    .error   { color: #a4262c; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #edebe9;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>⚡ Quick BCC</h2>
+
+  <!-- Current BCC Contact -->
+  <div class="card">
+    <p>Saved BCC contact:</p>
+    <span id="saved-email-display">Not configured yet</span>
+  </div>
+
+  <!-- Add as BCC -->
+  <button class="btn btn-primary" id="add-bcc-btn" disabled>
+    Add as BCC to this email
+  </button>
+
+  <hr/>
+
+  <!-- Change Contact -->
+  <div class="card">
+    <label for="email-input">Change BCC contact</label>
+    <input type="text" id="email-input" placeholder="name@example.com" />
+    <button class="btn btn-secondary" id="save-btn">Save contact</button>
+  </div>
+
+  <div id="status"></div>
+</body>
+</html>
